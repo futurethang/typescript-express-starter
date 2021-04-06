@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "/Users/kevinhyde/Desktop/typescript-express-starter/build/logs/error/.f9ccd08c6a5c3c5e5e355f6057382a02472ce00a-audit.json",
+    "files": [
+        {
+            "date": 1617672559304,
+            "name": "/Users/kevinhyde/Desktop/typescript-express-starter/build/logs/error/2021-04-05.error.log",
+            "hash": "d6a807dcdd17c4d7ec1bb314722209a3"
+        }
+    ]
+}
