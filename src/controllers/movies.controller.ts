@@ -28,14 +28,14 @@ class MoviesController {
   };
 
   public createMovie = async (req: Request, res: Response, next: NextFunction) => {
-    const movieData: CreateMovieDto = req.body;
 
-    // try {
-    //   const createUserData: User = await this.userService.createUser(userData);
-    //   res.status(201).json({ data: createUserData, message: 'created' });
-    // } catch (error) {
-    //   next(error);
-    // }
+    const movieData = req.body;
+    try {
+      const createMovieData = await this.movieService.createMovie(movieData);
+      res.status(201).json({ data: createMovieData, message: 'created' });
+    } catch (error) {
+      next(error);
+    }
   };
 
   public updateMovie = async (req: Request, res: Response, next: NextFunction) => {

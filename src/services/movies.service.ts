@@ -1,5 +1,5 @@
 // import bcrypt from 'bcrypt';
-// import { CreateMovieDto } from '../dtos/users.dto';
+import { CreateMovieDto } from '../dtos/movies.dto';
 import HttpException from '../exceptions/HttpException';
 import { Movie } from '../interfaces/movies.interface';
 import movieModel from '../models/movies.model';
@@ -15,20 +15,20 @@ class MovieService {
 
   public async findMovieById(movieId: string): Promise<Movie> {
     const findMovie: Movie = await this.movies.findOne({ _id: movieId });
-    if (!findMovie) throw new HttpException(409, "Movie not found");
+    if (!findMovie) throw new HttpException(409, 'Movie not found');
 
     return findMovie;
   }
 
   public async createMovie(movieData: CreateMovieDto): Promise<Movie> {
     if (isEmpty(movieData)) throw new HttpException(400, "You're not movieData");
-
-    // const findMovie: Movie = await this.movies.findOne({ email: movieData.email });
-    // if (findMovie) throw new HttpException(409, `You're email ${movieData.email} already exists`);
+    const findMovie: Movie = await this.movies.findOne({ title: movieData.title });
+    if (findMovie) throw new HttpException(409, `You're title ${movieData.title} already exists`);
 
     // const hashedPassword = await bcrypt.hash(movieData.password, 10);
-    // const createMovieData: Movie = await this.movies.create({ ...movieData, password: hashedPassword });
-    return movieData;  // Just filling to make type happy, must redo
+    const createMovieData: Movie = await this.movies.create({ ...movieData });
+    // return fakeMovieData; // Just filling to make type happy, must redo
+    return createMovieData;
   }
 
   public async updateMovie(movieId: string, movieData: Movie): Promise<Movie> {
