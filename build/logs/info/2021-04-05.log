@@ -23,3 +23,4 @@
 2021-04-05 20:46:37 info: ::1 - - [06/Apr/2021:03:46:37 +0000] "POST /users HTTP/1.1" 400 36 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"
 2021-04-05 20:46:54 info: ::1 - - [06/Apr/2021:03:46:54 +0000] "POST /users HTTP/1.1" 201 171 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"
 2021-04-05 20:50:16 info: ::1 - - [06/Apr/2021:03:50:16 +0000] "POST /users HTTP/1.1" 201 174 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"
+2021-04-05 21:00:00 info: ::1 - - [06/Apr/2021:04:00:00 +0000] "GET /users HTTP/1.1" 200 319 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"
