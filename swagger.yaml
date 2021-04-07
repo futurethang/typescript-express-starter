@@ -200,7 +200,7 @@ paths:
 
 # definitions
 definitions:
-  users:
+  user:
     type: object
     required:
       - email

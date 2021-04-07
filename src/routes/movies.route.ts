@@ -14,7 +14,7 @@ class MoviesRoute implements Route {
   }
 
   private initializeRoutes() {
-    // this.router.get(`${this.path}`, this.movieController.getUsers);
+    this.router.get(`${this.path}`, this.movieController.getMovies);
     // this.router.get(`${this.path}/:id`, this.movieController.getUserById);
     this.router.post(`${this.path}`, validationMiddleware(CreateMovieDto, 'body'), this.movieController.createMovie);
     // this.router.put(`${this.path}/:id`, validationMiddleware(CreateUserDto, 'body', true), this.movieController.updateUser);

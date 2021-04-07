@@ -8,12 +8,12 @@ class MoviesController {
   public movieService = new movieService(); // TODO
 
   public getMovies = async (req: Request, res: Response, next: NextFunction) => {
-    // try {
-    //   const findAllUsersData: User[] = await this.userService.findAllUser();
-    //   res.status(200).json({ data: findAllUsersData, message: 'findAll' });
-    // } catch (error) {
-    //   next(error);
-    // }
+    try {
+      const findAllMoviesData: Movie[] = await this.movieService.findAllMovies();
+      res.status(200).json({ data: findAllMoviesData, message: 'findAll' });
+    } catch (error) {
+      next(error);
+    }
   };
 
   public getMovieById = async (req: Request, res: Response, next: NextFunction) => {
