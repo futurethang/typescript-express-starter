@@ -136,7 +136,7 @@ paths:
           description: 'Server Error'
 
   # [GET] movie/id
-  /movie/{id}:
+  /movies/{id}:
     get:
       tags:
         - movie
@@ -214,13 +214,14 @@ definitions:
       password:
         type: string
         description: user Password
-  movies:
+  movie:
     type: object
     required:
       - email
       - password
     properties:
       id:
+        type: string
         description: movie Id
       title:
         type: string
@@ -231,6 +232,42 @@ definitions:
       rating:
         type: string
         description: movie Rating
+      score: 
+        type: string
+        description: movie description 
+      length: 
+        type: string
+        description: movie length
+      review: 
+        type: string
+        description: the user's review if provided
+      released: 
+        type: date
+        description: release year of movie
+      platforms: 
+        type: string[]
+        description: where you can watch the movie
+      genres: 
+        type: string[]
+        description: movie's genres
+      tags: 
+        type: string[]
+        description: user tags
+      posterImg: 
+        type: string
+        description: src of movie poster image
+      trailer: 
+        type: string
+        description: src of movie trailer
+      cast: 
+        type: string[]
+        description: list of cast members 
+      desire to see: 
+        type: number
+        description: desire to see rating out of 10
+      mentions: 
+        type: number
+        description: counter of mentions in the wild, adding to weight
 
 schemes:
   - https
