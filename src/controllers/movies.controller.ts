@@ -19,12 +19,12 @@ class MoviesController {
   public getMovieById = async (req: Request, res: Response, next: NextFunction) => {
     const movieId: string = req.params.id;
 
-    // try {
-    //   const findOneUserData: User = await this.userService.findUserById(userId);
-    //   res.status(200).json({ data: findOneUserData, message: 'findOne' });
-    // } catch (error) {
-    //   next(error);
-    // }
+    try {
+      const findOneMovieData: Movie = await this.movieService.findMovieById(movieId);
+      res.status(200).json({ data: findOneMovieData, message: 'findOne' });
+    } catch (error) {
+      next(error);
+    }
   };
 
   public createMovie = async (req: Request, res: Response, next: NextFunction) => {
