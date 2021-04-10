@@ -20,31 +20,24 @@ class MovieService {
     return findMovie;
   }
 
-  public async createMovie(movieData: CreateMovieDto): Promise<Movie> {
+  public async createMovie(movieData: Movie): Promise<Movie> {
     if (isEmpty(movieData)) throw new HttpException(400, "You're not movieData");
     const findMovie: Movie = await this.movies.findOne({ title: movieData.title });
     if (findMovie) throw new HttpException(409, `You're title ${movieData.title} already exists`);
-
-    // const hashedPassword = await bcrypt.hash(movieData.password, 10);
     const createMovieData: Movie = await this.movies.create({ ...movieData });
-    // return fakeMovieData; // Just filling to make type happy, must redo
     return createMovieData;
   }
 
   public async updateMovie(movieId: string, movieData: Movie): Promise<Movie> {
     if (isEmpty(movieData)) throw new HttpException(400, "You're not movieData");
-
-    // const hashedPassword = await bcrypt.hash(movieData.password, 10);
-    // const updateMovieById: Movie = await this.movies.findByIdAndUpdate(movieId, { ...movieData, password: hashedPassword });
-    // if (!updateMovieById) throw new HttpException(409, "You're not user");
-
-    return movieData; // Just filling to make type happy, must redo
+    const updateMovieById: Movie = await this.movies.findByIdAndUpdate(movieId, { ...movieData });
+    if (!updateMovieById) throw new HttpException(409, "You're not user");
+    return updateMovieById; 
   }
 
   public async deleteMovieData(movieId: string): Promise<Movie> {
     const deleteMovieById: Movie = await this.movies.findByIdAndDelete(movieId);
     if (!deleteMovieById) throw new HttpException(409, "You're not movie");
-
     return deleteMovieById;
   }
 }

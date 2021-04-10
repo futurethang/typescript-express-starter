@@ -139,7 +139,7 @@ paths:
   /movies/{id}:
     get:
       tags:
-        - movie
+        - movies
       summary: Find Movie By Id
       parameters:
         - name: id
@@ -157,7 +157,7 @@ paths:
     # [PUT] movies/id
     put:
       tags:
-        - movie
+        - movies
       summary: Update Movie By Id
       parameters:
         - name: id
@@ -183,7 +183,7 @@ paths:
     # [DELETE] movies/id
     delete:
       tags:
-        - movie
+        - movies
       summary: Delete Movie By Id
       parameters:
         - name: id
@@ -217,11 +217,8 @@ definitions:
   movie:
     type: object
     required:
-      - email
-      - password
     properties:
       id:
-        type: string
         description: movie Id
       title:
         type: string

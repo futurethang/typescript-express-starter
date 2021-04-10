@@ -42,23 +42,22 @@ class MoviesController {
     const movieId: string = req.params.id;
     const movieData: Movie = req.body;
 
-    // try {
-    //   const updateUserData: User = await this.userService.updateUser(userId, userData);
-    //   res.status(200).json({ data: updateUserData, message: 'updated' });
-    // } catch (error) {
-    //   next(error);
-    // }
+    try {
+      const updateMovieData: Movie = await this.movieService.updateMovie(movieId, movieData);
+      res.status(200).json({ data: updateMovieData, message: 'updated' });
+    } catch (error) {
+      next(error);
+    }
   };
 
   public deleteMovie = async (req: Request, res: Response, next: NextFunction) => {
     const movieId: string = req.params.id;
-
-    // try {
-    //   const deleteUserData: User = await this.userService.deleteUserData(userId);
-    //   res.status(200).json({ data: deleteUserData, message: 'deleted' });
-    // } catch (error) {
-    //   next(error);
-    // }
+    try {
+      const deleteMovieData: Movie = await this.movieService.deleteMovieData(movieId);
+      res.status(200).json({ data: deleteMovieData, message: 'deleted' });
+    } catch (error) {
+      next(error);
+    }
   };
 }
 
